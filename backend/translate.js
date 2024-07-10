@@ -65,7 +65,7 @@ function translateToText(morse) {
 		for (let key in dictionary) {
 			if (dictionary[key] == characterList[char]) {
 				text += key;
-				continue;
+				break;
 			}
 		}
 	}
