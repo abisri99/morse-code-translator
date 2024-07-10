@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morse Code Translator</title>
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <header>
     <h1>Morse Code Translator</h1>
@@ -17,6 +21,7 @@
       <h2>Text to Morse Code</h2>
       <input type="text" id="input-text" placeholder="Enter text to translate to Morse code">
       <button id="morse-button">Translate</button>
+      <button id="sound">Play</button>
       <div id="morse-output" class="output-box"></div>
     </section>
     <section class="translator">
@@ -26,7 +31,10 @@
       <div id="text-output" class="output-box"></div>
     </section>
   </main>
+  <script src="../assets/howler.js"></script>
   <script src="../backend/translate.js"></script>
   <script src="../backend/input.js"></script>
+  <script src="../backend/sound.js"></script>
 </body>
+
 </html>
