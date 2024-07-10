@@ -79,8 +79,8 @@ function translateToText(morse) {
 	}
 	const wordList = morse.split('/');
 	const text = wordList.map((word) => {
-		letterList = word.split(' ');
-		letterList.map((letter) => {
+		const letterList = word.split(' ');
+		return letterList.map((letter) => {
 			for (let key in dictionary) {
 				if (dictionary[key] === letter) {
 					return key;
