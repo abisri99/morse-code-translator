@@ -56,12 +56,21 @@ const dictionary = {
 };
 
 function translateToMorse(text) {
-	var morse_text = "";
-	for (let i = 0; i < text.length; i++) {
-		morse_text = morse_text + dictionary[text.charAt(i)];
+	text = text.toLowerCase();
+	var pattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
+	if (pattern.test(text)) {
+	  var morse_array = [];
+	  for (var i = 0; i < text.length; i++) {
+		if (text.charAt(i) === ' ') {
+		  morse_array.push('/');
+		} else {
+		  morse_array.push(dictionary[text.charAt(i)]);
+		}
 	  }
-	  return morse_text;
-}
+	  return morse_array.join(" ");
+	}
+	return "Error: Invalid characters detected";
+  }
 
 function translateToText(morse) {
 	let text = "";
