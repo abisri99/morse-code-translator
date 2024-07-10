@@ -56,4 +56,9 @@ let dictionary = {
 };
 
 function translateToMorse(text) {
+	var morse_text = "";
+	for (let i = 0; i < text.length; i++) {
+		morse_text = morse_text + dictionary[text.charAt(i)];
+	  }
+	  return morse_text;
 }
