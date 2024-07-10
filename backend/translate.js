@@ -73,21 +73,23 @@ function translateToMorse(text) {
 }
 
 function translateToText(morse) {
-	let text = "";
-	let pattern = /^[ .\-]*$/;
-	if (pattern.test(morse)) {
-		const characterList = morse.split(' ');
-		for (let char = 0; char < characterList.length; char++) {
+	let pattern = /^[ /.\-]*$/;
+	if (!pattern.test(morse)) {
+		return "Error: Invalid characters detected";
+	}
+	const wordList = morse.split('/');
+	const text = wordList.map((word) => {
+		letterList = word.split(' ');
+		letterList.map((letter) => {
 			for (let key in dictionary) {
-				if (dictionary[key] == characterList[char]) {
-					text += key;
-					break;
+				if (dictionary[key] === letter) {
+					return key;
 				}
 			}
-		}
-		return text;
-	}
-	return "Error: Invalid characters detected";
+			return '';
+		}).join("")
+	}).join(" ")
+	return text;
 }
 
 module.exports = { translateToMorse, translateToText };

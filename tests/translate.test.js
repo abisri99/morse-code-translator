@@ -22,6 +22,11 @@ describe('Morse Code Translator', () => {
 		assert.strictEqual(result, ".---- ..--- ...--");
 	});
 
+	it("should handle spaces correctly", function() {
+		const result = translateToText(".... . .-.. .-.. --- -.-.-- / - .... .. ... / .. ... / .- / - . ... - .-.-.-");
+		assert.strictEqual(result, "hello! this is a test.")
+	});
+
 	it("should return an error for invalid characters (text)", function() {
 		const result = translateToMorse("Hello @World");
 		assert.strictEqual(result, "Error: Invalid characters detected")
