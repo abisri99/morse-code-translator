@@ -1,4 +1,4 @@
-let dictionary = {
+const dictionary = {
 	'a': ".-",
 	'b': "-...",
 	'c': "-.-.",
@@ -62,3 +62,19 @@ function translateToMorse(text) {
 	  }
 	  return morse_text;
 }
+
+function translateToText(morse) {
+	let text = "";
+	const characterList = morse.split(' ');
+	for (let char = 0; char < characterList.length; char++) {
+		for (let key in dictionary) {
+			if (dictionary[key] == characterList[char]) {
+				text += key;
+				break;
+			}
+		}
+	}
+	return text;
+}
+
+module.exports = { translateToMorse, translateToText };
