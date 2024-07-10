@@ -57,33 +57,37 @@ const dictionary = {
 
 function translateToMorse(text) {
 	text = text.toLowerCase();
-	var pattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
+	let pattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
 	if (pattern.test(text)) {
-	  var morse_array = [];
-	  for (var i = 0; i < text.length; i++) {
-		if (text.charAt(i) === ' ') {
-		  morse_array.push('/');
-		} else {
-		  morse_array.push(dictionary[text.charAt(i)]);
+		let morse_array = [];
+		for (let i = 0; i < text.length; i++) {
+			if (text.charAt(i) === ' ') {
+				morse_array.push('/');
+			} else {
+				morse_array.push(dictionary[text.charAt(i)]);
+			}
 		}
-	  }
-	  return morse_array.join(" ");
+		return morse_array.join(" ");
 	}
 	return "Error: Invalid characters detected";
-  }
+}
 
 function translateToText(morse) {
 	let text = "";
-	const characterList = morse.split(' ');
-	for (let char = 0; char < characterList.length; char++) {
-		for (let key in dictionary) {
-			if (dictionary[key] == characterList[char]) {
-				text += key;
-				break;
+	let pattern = /^[ .\-]*$/;
+	if (pattern.test(morse)) {
+		const characterList = morse.split(' ');
+		for (let char = 0; char < characterList.length; char++) {
+			for (let key in dictionary) {
+				if (dictionary[key] == characterList[char]) {
+					text += key;
+					break;
+				}
 			}
 		}
+		return text;
 	}
-	return text;
+	return "Error: Invalid characters detected";
 }
 
 module.exports = { translateToMorse, translateToText };
