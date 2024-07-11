@@ -25,7 +25,7 @@ function playMorse(morseCode) {
 		});
 		delay += 500; // Add extra delay between characters
 	});
-}
+};
 
 if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
 	module.exports = { playMorse };

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1500);
   });
   document.getElementById('sound').addEventListener('click', () => {
-    dotSound.stop();
-    dashSound.stop();
+    dotSound.unload();
+    dashSound.unload();
   });
 });
