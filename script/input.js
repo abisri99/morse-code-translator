@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       playMorse(document.getElementById('morse-output-text').innerText);
     }
   });
+  
 
   const morseOutputDiv = document.getElementById('morse-output');
   morseOutputDiv.addEventListener('click', () => {
