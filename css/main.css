@@ -49,12 +49,12 @@ main {
   width: 100%;
   max-width: 600px;
   text-align: center;
-  margin: 0 auto;
+  margin: 20px;
 }
 
 .translator h2 {
   font-family: 'Inconsolata', monospace;
-  font-size: 2.0rem;
+  font-size: 2rem;
   margin: -5px 0 12px;
   color: #ffcc00;
 }
@@ -135,11 +135,9 @@ button#sound {
 
 .fa-copy {
   position: absolute;
-  left: 5px;
-  font-size: 12px;
-  top: 7px;
   left: 7px;
   font-size: 12px;
+  top: 7px;
   cursor: pointer;
 }
 
@@ -160,24 +158,42 @@ footer {
   }
 
   .translator {
-    width: 100%;
+    width: calc(100% - 40px);
     padding: 20px;
-    margin: 0;
+    margin: 20px;
   }
 
   input[type="text"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
+    width: calc(100% - 30px);
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
   }
 
   button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 1rem;
   }
 
   .output-box {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .translator h2 {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    font-size: 0.6rem;
   }
 }
