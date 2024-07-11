@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('sound').addEventListener('click', () => {
-  playMorse(document.getElementById('input-text').value);
+  playMorse(document.getElementById('morse-output').innerText);
 });
