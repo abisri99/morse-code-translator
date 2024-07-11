@@ -1,5 +1,7 @@
+var playing = false;
+var pattern = /^[ /.\-]*$/;
+
 document.addEventListener('DOMContentLoaded', () => {
-  let pattern = /^[ /.\-]*$/;
   const translate = () => {
     const input = document.getElementById('input-text').value;
     if (input == '') {
@@ -22,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  let playing = false;
   document.getElementById('sound').addEventListener('click', () => {
     if (playing) {
       document.getElementById('sound').innerText = 'Play';

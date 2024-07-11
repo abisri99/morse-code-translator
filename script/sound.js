@@ -31,6 +31,7 @@ function playMorse(morseCode) {
 	// Reset the button text and state when playback is complete
 	setTimeout(() => {
 		document.getElementById('sound').innerText = 'Play';
+		playing = false;
 	}, delay + 500);
 }
 
