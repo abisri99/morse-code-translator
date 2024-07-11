@@ -12,7 +12,6 @@ function playMorse(morseCode) {
 					case '.':
 						dotSound.rate(2)
 						dotSound.play();
-						dotSound.rate;
 						break;
 					case '-':
 						dashSound.rate(2)
