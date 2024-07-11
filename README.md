@@ -5,6 +5,7 @@ This web application translates text to Morse code and vice versa, offering a di
 # About
 
 This project is a hobby project created for learning and fun, aiming to explore Morse code's role in digital communication and its historical significance. It serves as an educational tool and a practical implementation of Morse code translation in a digital environment.
+
 # Features
 
 - Translate text to Morse code and vice versa.
@@ -30,7 +31,7 @@ git clone https://github.com/kushagra-xo/morse-code-translator.git
 
 Navigate into the project directory:
 ```bash
-    cd morse-code-translator
+cd morse-code-translator
 ```
 
 Open the index.html file in your web browser.
