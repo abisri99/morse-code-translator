@@ -83,6 +83,10 @@ button:hover {
   background-color: #e6b800;
 }
 
+button#sound {
+  margin-top: 20px; /* Add margin to the Play button */
+}
+
 .output-box {
   margin-top: 20px;
   padding: 20px;
