@@ -141,6 +141,7 @@ button#sound {
   top: 7px;
   left: 7px;
   font-size: 12px;
+  cursor: pointer;
 }
 
 footer {
