@@ -34,9 +34,11 @@ main {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  justify-content: center;
   width: 90%;
   max-width: 800px;
   padding: 20px;
+  flex-grow: 1;
 }
 
 .translator {
@@ -117,7 +119,8 @@ button#sound {
 
 .copy-notification {
   position: absolute;
-  top: -30px; /* push the notification up a bit more */
+  top: -30px;
+  /* push the notification up a bit more */
   left: 0;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -133,8 +136,17 @@ button#sound {
 
 .fa-copy {
   position: absolute;
+  left: 5px;
+  font-size: 12px;
   top: 7px;
-  left: 7px; 
-  font-size: 12px; 
+  left: 7px;
+  font-size: 12px;
   cursor: pointer;
+}
+
+footer {
+  color: #9a9a9a;
+  font-size: smaller;
+  text-align: center;
+  margin-bottom: 20px;
 }
