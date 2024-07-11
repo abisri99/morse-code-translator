@@ -92,4 +92,6 @@ function translateToText(morse) {
 	return text;
 }
 
-module.exports = { translateToMorse, translateToText };
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+	module.exports = { translateToMorse, translateToText };
+}

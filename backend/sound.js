@@ -3,7 +3,7 @@ const dashSound = new Howl({ src: ['../assets/dash.wav'] });
 
 function playMorse(morseCode) {
 	const characters = morseCode.trim().split(' ');
-	let delay = 0;
+	let delay = 0; // Initial delay
 
 	characters.forEach(character => {
 		character.split('').forEach(symbol => {
@@ -19,10 +19,12 @@ function playMorse(morseCode) {
 						break;
 				}
 			}, delay);
-			delay += 500;
+			delay += 500; // Add 500ms delay for the next symbol
 		});
-		delay += 1000;
+		delay += 1000; // Add extra delay between characters
 	});
 }
 
-module.exports = { playMorse };
+if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
+	module.exports = { playMorse };
+}
