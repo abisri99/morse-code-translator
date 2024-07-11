@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       if (!pattern.test(document.getElementById('morse-output-text').innerText)) {
         document.getElementById('morse-output-text').innerText = "Erorr: This is not morse code"
-      }
-      {
         document.getElementById('sound').innerText = 'Play';
         playing = false;
         return;
