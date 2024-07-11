@@ -136,14 +136,11 @@ button#sound {
 
 .fa-copy {
   position: absolute;
-  <<<<<<< HEAD top: 5px;
   left: 5px;
   font-size: 12px;
-  /* make the icon smaller */
-  =======top: 7px;
+  top: 7px;
   left: 7px;
   font-size: 12px;
-  >>>>>>>5f1fd553787ad2f6f7bb777486fad0813148732e cursor: pointer;
 }
 
 footer {
