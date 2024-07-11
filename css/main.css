@@ -1,7 +1,7 @@
 body {
   font-family: 'Roboto Mono', monospace;
   background-color: #121212;
-  color: #f0f0f0;
+  color: #d9d9d9;
   margin: 0;
   padding: 0;
   display: flex;
@@ -65,7 +65,7 @@ input[type="text"] {
   border-radius: 10px;
   font-size: 1.2rem;
   background-color: #444444;
-  color: #f0f0f0;
+  color: #d9d9d9;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
@@ -107,7 +107,7 @@ button#sound {
   min-height: 60px;
   word-wrap: break-word;
   font-size: 1.5rem;
-  color: #ffcc00;
+  color: #d9d9d9;
   display: flex;
   align-items: center;
   justify-content: center;
