@@ -2,12 +2,15 @@ var pattern = /^[ /.\-]*$/;
 document.addEventListener('DOMContentLoaded', () => {
   const translate = () => {
     const input = document.getElementById('input-text').value;
+    const soundButton = document.getElementById('sound');
     if (pattern.test(input)) {
       const morseOutput = translateToText(input);
       document.getElementById('morse-output-text').innerText = morseOutput;
+      soundButton.classList.add('hidden');
     } else {
       const textOutput = translateToMorse(input);
       document.getElementById('morse-output-text').innerText = textOutput;
+      soundButton.classList.remove('hidden'); 
     }
   }
 

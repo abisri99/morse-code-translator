@@ -115,12 +115,12 @@ button#sound {
   justify-content: center;
   position: relative;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .copy-notification {
   position: absolute;
   top: -30px;
-  /* push the notification up a bit more */
   left: 0;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -132,7 +132,6 @@ button#sound {
   color: #333;
   z-index: 1000;
 }
-
 
 .fa-copy {
   position: absolute;
@@ -149,4 +148,36 @@ footer {
   font-size: smaller;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+
+  .translator {
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+  }
+
+  input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .output-box {
+    padding: 10px;
+    margin-top: 10px;
+  }
 }
