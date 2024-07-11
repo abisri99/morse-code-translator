@@ -10,6 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
@@ -22,7 +23,10 @@
     <section class="translator">
       <input type="text" id="input-text" placeholder="Enter text to translate" aria-label="Enter text to translate">
       <button id="morse-button" aria-label="Translate">Translate</button>
-      <div id="morse-output" class="output-box" aria-live="polite"></div>
+      <div id="morse-output" class="output-box" aria-live="polite">
+        <i class="fas fa-copy" id="copy-icon" style="opacity: 0.5; margin-right: 10px;"></i>
+        <span id="morse-output-text"></span>
+      </div>
       <button id="sound" aria-label="Play Sound">Play</button>
       <button id="stop" aria-label="Stop Sound">Stop</button>
     </section>
