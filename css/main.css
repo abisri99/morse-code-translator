@@ -111,4 +111,30 @@ button#sound {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding-left: 20px;
+}
+
+.copy-notification {
+  position: absolute;
+  top: -30px; /* push the notification up a bit more */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  z-index: 1000;
+}
+
+
+.fa-copy {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 12px; /* make the icon smaller */
+  cursor: pointer;
 }
