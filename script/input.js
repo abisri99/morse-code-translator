@@ -21,18 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
       translate();
     }
   })
-  document.getElementById('sound').addEventListener('click', () => {
-    const input = document.getElementById('input-text').value;
-    if (input == '') {
-      document.getElementById('morse-output').innerText = "Error: Translate something first";
-      return;
 
+  let playing = false;
+  document.getElementById('sound').addEventListener('click', () => {
+    if (playing) {
+      document.getElementById('sound').innerText = 'Play';
+      playing = false;
+      stopSound();
+    } else {
+      document.getElementById('sound').innerText = 'Stop';
+      playing = true;
+      playMorse(document.getElementById('morse-output-text').innerText);
     }
-    if (pattern.test(input)) {
-      document.getElementById('morse-output-text').innerText = "Error: Cannot play text output";
-      return;
-    }
-    playMorse(document.getElementById('morse-output-text').innerText);
   });
 
   const morseOutputDiv = document.getElementById('morse-output');
@@ -53,9 +53,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       notification.remove();
     }, 1500);
-  });
-  document.getElementById('sound').addEventListener('click', () => {
-    dotSound.unload();
-    dashSound.unload();
   });
 });
