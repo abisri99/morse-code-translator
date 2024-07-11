@@ -2,7 +2,7 @@ const dotSound = new Howl({ src: ['assets/dot.wav'] });
 const dashSound = new Howl({ src: ['assets/dash.wav'] });
 
 let soundTimeouts = [];
-let playing = false;
+let isPlaying = false;
 
 /**
  * Plays Morse code sounds for each dot and dash.
@@ -36,7 +36,7 @@ function playMorse(morseCode) {
   // Reset button text and state when playback is complete
   setTimeout(() => {
     document.getElementById('sound').innerText = 'Play'; // Reset button text
-    playing = false; // Reset playing state
+    isPlaying = false; // Reset playing state
   }, delay + 500); // Delay + additional time after last character
 }
 
