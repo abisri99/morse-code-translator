@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('morse-button').addEventListener('click', () => {
-    const inputText = document.getElementById('input-text').value;
-    const morseOutput = translateToMorse(inputText);
-    document.getElementById('morse-output').innerText = morseOutput;
+    const input = document.getElementById('input-text').value;
+    let pattern = /^[ /.\-]*$/;
+    if (pattern.test(input)) {
+      const morseOutput = translateToText(input);
+      document.getElementById('morse-output').innerText = morseOutput;
+    }
+    else {
+      const textOutput = translateToMorse(input);
+      document.getElementById('morse-output').innerText = textOutput;
+    }
   });
-
-  document.getElementById('text-button').addEventListener('click', () => {
-    const inputMorse = document.getElementById('input-morse').value;
-    const textOutput = translateToText(inputMorse);
-    document.getElementById('text-output').innerText = textOutput;
+  document.getElementById('sound').addEventListener('click', () => {
+    playMorse(document.getElementById('morse-output').innerText);
   });
-});
-
-document.getElementById('sound').addEventListener('click', () => {
-  playMorse(document.getElementById('morse-output').innerText);
 });
