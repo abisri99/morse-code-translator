@@ -1,3 +1,7 @@
+/**
+ * Dictionary mapping characters to Morse code and vice versa.
+ * @type {Object<string, string>}
+ */
 const dictionary = {
 	'a': ".-", 'b': "-...", 'c': "-.-.", 'd': "-..", 'e': ".", 'f': "..-.",
 	'g': "--.", 'h': "....", 'i': "..", 'j': ".---", 'k': "-.-", 'l': ".-..",
@@ -11,29 +15,32 @@ const dictionary = {
 	'-': "-....-", '_': "..--.-", '"': ".-..-.", '$': "...-..-", '@': ".--.-."
 };
 
-const textPattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
-const morsePattern = /^[ /.\-]*$/;
-
+/**
+ * Translates text to Morse code.
+ * @param {string} text - The text to translate.
+ * @returns {string} - The Morse code translation.
+ */
 function translateToMorse(text) {
 	text = text.toLowerCase();
-	if (!text) return "Error: Enter something first";
+	let morseArray = [];
 
-	if (!textPattern.test(text)) return "Error: Invalid characters detected";
-
-	let morse_array = [];
 	for (let i = 0; i < text.length; i++) {
 		if (text.charAt(i) === ' ') {
-			morse_array.push('/');
+			morseArray.push('/');
 		} else {
-			morse_array.push(dictionary[text.charAt(i)]);
+			morseArray.push(dictionary[text.charAt(i)]);
 		}
 	}
-	return morse_array.join(" ");
+
+	return morseArray.join(" ");
 }
 
+/**
+ * Translates Morse code to text.
+ * @param {string} morse - The Morse code to translate.
+ * @returns {string} - The text translation.
+ */
 function translateToText(morse) {
-	if (!morse) return "Error: Enter something first";
-	if (!morsePattern.test(morse)) return "Error: Invalid characters detected";
 	const wordList = morse.split('/');
 	const text = wordList.map((word) => {
 		const letterList = word.split(' ');
@@ -44,11 +51,13 @@ function translateToText(morse) {
 				}
 			}
 			return '';
-		}).join("")
-	}).join(" ")
+		}).join("");
+	}).join(" ");
+
 	return text;
 }
 
+// Export functions for Node.js if applicable
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 	module.exports = { translateToMorse, translateToText };
 }
