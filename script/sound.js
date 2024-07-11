@@ -7,7 +7,6 @@ let playing = false;
 function playMorse(morseCode) {
   const characters = morseCode.trim().split(' ');
   let delay = 0;
-
   characters.forEach(character => {
     character.split('').forEach(symbol => {
       soundTimeouts.push(setTimeout(() => {
