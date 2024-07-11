@@ -1,70 +1,24 @@
 const dictionary = {
-	'a': ".-",
-	'b': "-...",
-	'c': "-.-.",
-	'd': "-..",
-	'e': ".",
-	'f': "..-.",
-	'g': "--.",
-	'h': "....",
-	'i': "..",
-	'j': ".---",
-	'k': "-.-",
-	'l': ".-..",
-	'm': "--",
-	'n': "-.",
-	'o': "---",
-	'p': ".--.",
-	'q': "--.-",
-	'r': ".-.",
-	's': "...",
-	't': "-",
-	'u': "..-",
-	'v': "...-",
-	'w': ".--",
-	'x': "-..-",
-	'y': "-.--",
-	'z': "--..",
-	'0': "-----",
-	'1': ".----",
-	'2': "..---",
-	'3': "...--",
-	'4': "....-",
-	'5': ".....",
-	'6': "-....",
-	'7': "--...",
-	'8': "---..",
-	'9': "----.",
-	'.': ".-.-.-",
-	',': "--..--",
-	'?': "..--..",
-	"'": ".----.",
-	'!': "-.-.--",
-	'/': "-..-.",
-	'(': "-.--.",
-	')': "-.--.-",
-	'&': ".-...",
-	':': "---...",
-	';': "-.-.-.",
-	'=': "-...-",
-	'+': ".-.-.",
-	'-': "-....-",
-	'_': "..--.-",
-	'"': ".-..-.",
-	'$': "...-..-",
-	'@': ".--.-."
+	'a': ".-", 'b': "-...", 'c': "-.-.", 'd': "-..", 'e': ".", 'f': "..-.",
+	'g': "--.", 'h': "....", 'i': "..", 'j': ".---", 'k': "-.-", 'l': ".-..",
+	'm': "--", 'n': "-.", 'o': "---", 'p': ".--.", 'q': "--.-", 'r': ".-.",
+	's': "...", 't': "-", 'u': "..-", 'v': "...-", 'w': ".--", 'x': "-..-",
+	'y': "-.--", 'z': "--..", '0': "-----", '1': ".----", '2': "..---",
+	'3': "...--", '4': "....-", '5': ".....", '6': "-....", '7': "--...",
+	'8': "---..", '9': "----.", '.': ".-.-.-", ',': "--..--", '?': "..--..",
+	"'": ".----.", '!': "-.-.--", '/': "-..-.", '(': "-.--.", ')': "-.--.-",
+	'&': ".-...", ':': "---...", ';': "-.-.-.", '=': "-...-", '+': ".-.-.",
+	'-': "-....-", '_': "..--.-", '"': ".-..-.", '$': "...-..-", '@': ".--.-."
 };
+
+const textPattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
+const morsePattern = /^[ /.\-]*$/;
 
 function translateToMorse(text) {
 	text = text.toLowerCase();
-	let pattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
-	if (text == "") {
-		return "Error: Enter something first"
-	}
+	if (!text) return "Error: Enter something first";
 
-	if (!pattern.test(text)) {
-		return "Error: Invalid characters detected";
-	}
+	if (!textPattern.test(text)) return "Error: Invalid characters detected";
 
 	let morse_array = [];
 	for (let i = 0; i < text.length; i++) {
@@ -78,13 +32,8 @@ function translateToMorse(text) {
 }
 
 function translateToText(morse) {
-	let pattern = /^[ /.\-]*$/;
-	if (morse == "") {
-		return "Error: Enter something first";
-	}
-	if (!pattern.test(morse)) {
-		return "Error: Invalid characters detected";
-	}
+	if (!morse) return "Error: Enter something first";
+	if (!morsePattern.test(morse)) return "Error: Invalid characters detected";
 	const wordList = morse.split('/');
 	const text = wordList.map((word) => {
 		const letterList = word.split(' ');
