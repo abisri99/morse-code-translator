@@ -10,18 +10,21 @@ function playMorse(morseCode) {
 			setTimeout(() => {
 				switch (symbol) {
 					case '.':
+						dotSound.rate(2)
 						dotSound.play();
+						dotSound.rate;
 						break;
 					case '-':
+						dashSound.rate(2)
 						dashSound.play();
 						break;
 					default:
 						break;
 				}
 			}, delay);
-			delay += 500; // Add 500ms delay for the next symbol
+			delay += 250; // Add 500ms delay for the next symbol
 		});
-		delay += 1000; // Add extra delay between characters
+		delay += 500; // Add extra delay between characters
 	});
 }
 
