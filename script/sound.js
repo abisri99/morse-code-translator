@@ -2,6 +2,7 @@ const dotSound = new Howl({ src: ['assets/dot.wav'] });
 const dashSound = new Howl({ src: ['assets/dash.wav'] });
 
 let soundTimeouts = [];
+let playing = false;
 
 function playMorse(morseCode) {
   const characters = morseCode.trim().split(' ');
