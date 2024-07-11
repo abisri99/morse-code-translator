@@ -16,15 +16,17 @@ header {
   margin-bottom: 20px;
 }
 
-h1 {
+h1, .subtitle, .translator h2 {
   font-family: 'Inconsolata', monospace;
+}
+
+h1 {
   font-size: 3rem;
   color: #d9d9d9;
   margin-bottom: 10px;
 }
 
 .subtitle {
-  font-family: 'Inconsolata', monospace;
   font-size: 1.2rem;
   color: #bbbbbb;
 }
@@ -50,13 +52,6 @@ main {
   max-width: 600px;
   text-align: center;
   margin: 20px;
-}
-
-.translator h2 {
-  font-family: 'Inconsolata', monospace;
-  font-size: 2rem;
-  margin: -5px 0 12px;
-  color: #ffcc00;
 }
 
 input[type="text"] {
@@ -199,3 +194,4 @@ footer {
     font-size: 0.6rem;
   }
 }
+
