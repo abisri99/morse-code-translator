@@ -58,22 +58,30 @@ const dictionary = {
 function translateToMorse(text) {
 	text = text.toLowerCase();
 	let pattern = /^[a-zA-Z0-9\.\,\?\!\/\-\:\'\" ]*$/;
-	if (pattern.test(text)) {
-		let morse_array = [];
-		for (let i = 0; i < text.length; i++) {
-			if (text.charAt(i) === ' ') {
-				morse_array.push('/');
-			} else {
-				morse_array.push(dictionary[text.charAt(i)]);
-			}
-		}
-		return morse_array.join(" ");
+	if (text == "") {
+		return "Error: Enter something first"
 	}
-	return "Error: Invalid characters detected";
+
+	if (!pattern.test(text)) {
+		return "Error: Invalid characters detected";
+	}
+
+	let morse_array = [];
+	for (let i = 0; i < text.length; i++) {
+		if (text.charAt(i) === ' ') {
+			morse_array.push('/');
+		} else {
+			morse_array.push(dictionary[text.charAt(i)]);
+		}
+	}
+	return morse_array.join(" ");
 }
 
 function translateToText(morse) {
 	let pattern = /^[ /.\-]*$/;
+	if (morse == "") {
+		return "Error: Enter something first";
+	}
 	if (!pattern.test(morse)) {
 		return "Error: Invalid characters detected";
 	}
