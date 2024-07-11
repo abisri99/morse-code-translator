@@ -93,7 +93,8 @@ button:active {
 }
 
 button#sound {
-  margin-top: 20px; /* Add margin to the Play button */
+  margin-top: 20px;
+  /* Add margin to the Play button */
 }
 
 .output-box {

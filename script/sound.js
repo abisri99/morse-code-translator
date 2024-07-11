@@ -1,5 +1,5 @@
-const dotSound = new Howl({ src: ['../assets/dot.wav'] });
-const dashSound = new Howl({ src: ['../assets/dash.wav'] });
+const dotSound = new Howl({ src: ['assets/dot.wav'] });
+const dashSound = new Howl({ src: ['assets/dash.wav'] });
 
 function playMorse(morseCode) {
 	const characters = morseCode.trim().split(' ');
