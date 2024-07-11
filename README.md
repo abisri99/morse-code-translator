@@ -7,38 +7,40 @@ This web application translates text to Morse code and vice versa, offering a di
 This project is a hobby project created for learning and fun, aiming to explore Morse code's role in digital communication and its historical significance. It serves as an educational tool and a practical implementation of Morse code translation in a digital environment.
 # Features
 
-    - Translate text to Morse code and vice versa.
-    - Play Morse code as audio tones.
-    - Translate text by hitting the Enter key.
+- Translate text to Morse code and vice versa.
+- Play Morse code as audio tones.
+- Translate text by hitting the Enter key.
 
 # Technologies Used
 
-    - HTML5
-    - CSS3
-    - JavaScript (ES6+)
-    - Howler.js for audio playback
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Howler.js for audio playback
 
 # Getting Started
 
 To run the Morse code translator locally:
 
-    Clone this repository:
+Clone this repository:
 
+```bash
 git clone https://github.com/kushagra-xo/morse-code-translator.git
+```
 
 Navigate into the project directory:
-
-
+```bash
     cd morse-code-translator
+```
 
-    Open the index.html file in your web browser.
+Open the index.html file in your web browser.
 
 Alternatively, view the live demo hosted on GitHub Pages.
 # Usage
 
-    - Enter text or Morse code in the input field.
-    - Press the Enter key to translate the input.
-    - The translation will be displayed in the output field.
+- Enter text or Morse code in the input field.
+- Press the Enter key to translate the input.
+- The translation will be displayed in the output field.
 
 # Contributing
 
