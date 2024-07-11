@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
   const translate = () => {
     const input = document.getElementById('input-text').value;
-    const output = morsePattern.test(input) ? translateToText(input) : translateToMorse(input);
-    document.getElementById('morse-output-text').innerText = output;
+    const soundButton = document.getElementById('sound');
+    if (morsePattern.test(input)) {
+      document.getElementById('morse-output-text').innerText = translateToText(input);
+      soundButton.classList.add('hidden');
+    } else {
+      document.getElementById('morse-output-text').innerText = translateToMorse(input);
+      soundButton.classList.remove('hidden');
+    }
   }
 
   document.body.addEventListener('click', event => {
@@ -51,6 +57,6 @@ function handleMorseOutputClick() {
   const notification = document.createElement('div');
   notification.className = 'copy-notification';
   notification.innerText = 'Text copied!';
-  morseOutputDiv.appendChild(notification);
+  document.getElementById('morse-output').appendChild(notification);
   setTimeout(() => notification.remove(), 1500);
 }
