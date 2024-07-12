@@ -30,18 +30,18 @@ function playMorse(morseCode) {
               break;
           }
         }, delay));
-        delay += 250; // Time between each dot/dash
+        delay += 200; // Time between each dot/dash
       });
-      delay += 500; // Time between characters
+      delay += 400; // Time between characters
     });
-    delay += 1000;
+    delay += 800;
   });
 
   // Reset button text and state when playback is complete
   setTimeout(() => {
     document.getElementById('sound').innerText = 'Play'; // Reset button text
     isPlaying = false; // Reset playing state
-  }, delay + 500); // Delay + additional time after last character
+  }, delay + 100); // Delay + additional time after last character
 }
 
 /**

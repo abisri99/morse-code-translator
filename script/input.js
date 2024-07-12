@@ -14,7 +14,7 @@ const showNotification = (message, className) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   // Patterns to validate Morse code and plain text
-  const MORSE_PATTERN = /^[.\- ]+$/;
+  const MORSE_PATTERN = /^[.\- \/]+$/;
   const TEXT_PATTERN = /^[a-zA-Z0-9 ]+$/;
   let isPlaying = false;
 
@@ -71,8 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       console.log(outputElement.innerText);
       const morseText = outputElement.innerText;
-      soundButton.innerText = 'Play';
-      isPlaying = false;
+      if (!MORSE_PATTERN.test(morseText)) {
+        return;
+      }
       soundButton.innerText = 'Stop';
       isPlaying = true;
       playMorse(morseText);
