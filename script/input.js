@@ -42,9 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (MORSE_PATTERN.test(input)) {
       outputElement.innerText = translateToText(input);
+      console.log(outputElement.innerText);
       soundButton.classList.add('hidden');
     } else if (TEXT_PATTERN.test(input)) {
       outputElement.innerText = translateToMorse(input);
+      console.log(outputElement.innerText);
       soundButton.classList.remove('hidden');
     } else {
       showNotification('Error: Invalid Input', 'error');
@@ -67,12 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
       isPlaying = false;
       stopSound();
     } else {
-      const morseText = outputElement.innerText.trim();
-      if (!MORSE_PATTERN.test(morseText)) {
-        soundButton.innerText = 'Play';
-        isPlaying = false;
-        return;
-      }
+      console.log(outputElement.innerText);
+      const morseText = outputElement.innerText;
+      soundButton.innerText = 'Play';
+      isPlaying = false;
       soundButton.innerText = 'Stop';
       isPlaying = true;
       playMorse(morseText);
