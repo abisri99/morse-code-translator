@@ -9,7 +9,6 @@ let isPlaying = false;
  * @param {string} morseCode - The Morse code to play.
  */
 function playMorse(morseCode) {
-  console.log(morseCode);
   const words = morseCode.trim().split(' / ');
   let delay = 0;
   words.forEach(word => {
