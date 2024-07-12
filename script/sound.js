@@ -9,29 +9,38 @@ let isPlaying = false;
  * @param {string} morseCode - The Morse code to play.
  */
 function playMorse(morseCode) {
-  const characters = morseCode.trim().split(' ');
+  if (isPlaying) return; // Prevent multiple concurrent plays
+
+  const words = morseCode.trim().split('/');
   let delay = 0;
 
-  characters.forEach(character => {
-    character.split('').forEach(symbol => {
-      soundTimeouts.push(setTimeout(() => {
-        switch (symbol) {
-          case '.':
-            dotSound.rate(1.5); // Adjust playback rate if necessary
-            dotSound.play();
-            break;
-          case '-':
-            dashSound.rate(1.5); // Adjust playback rate if necessary
-            dashSound.play();
-            break;
-          default:
-            break;
-        }
-      }, delay));
-      delay += 250; // Time between each dot/dash
+  words.forEach(word => {
+    const characters = word.trim().split(' ');
+    characters.forEach(character => {
+      character.split('').forEach(symbol => {
+        soundTimeouts.push(setTimeout(() => {
+          switch (symbol) {
+            case '.':
+              dotSound.rate(1.5); // Adjust playback rate if necessary
+              dotSound.play();
+              break;
+            case '-':
+              dashSound.rate(1.5); // Adjust playback rate if necessary
+              dashSound.play();
+              break;
+            default:
+              console.log('Invalid symbol:', symbol); // Debug logging
+              break;
+          }
+        }, delay));
+        delay += 250; // Time between each dot/dash
+      });
+      delay += 250; // Additional time between characters
     });
-    delay += 500; // Time between characters
+    delay += 500; // Additional time between words
   });
+
+  isPlaying = true; // Set playing state to true
 
   // Reset button text and state when playback is complete
   setTimeout(() => {
