@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Patterns to validate Morse code and plain text
   const MORSE_PATTERN = /^[.\- ]+$/;
   const TEXT_PATTERN = /^[a-zA-Z0-9 ]+$/;
+  let isPlaying = false;
 
   // Cache frequently accessed DOM elements
   const inputElement = document.getElementById('input-text');
