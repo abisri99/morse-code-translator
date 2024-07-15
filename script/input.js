@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (inputLength > 512) {
-      showNotification("❌ Limit Reached", "limit");
+      showNotification("❌ Charecter limit exceeded", "limit");
       return;
     }
 
