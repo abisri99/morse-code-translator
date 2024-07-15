@@ -1,48 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Morse Code Translator</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <title>Morse Code Translator</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+    <!-- Link to main CSS stylesheet -->
+    <link rel="stylesheet" href="css/main.css" />
 
-<body>
-  <header>
-    <h1>Morse Code Translator</h1>
-    <p class="subtitle">The quick and simple translator for Morse code</p>
-  </header>
-  <main>
-    <section class="translator">
-      <input type="text" id="input-text" placeholder="Enter text to translate" aria-label="Enter text to translate">
-      <button id="morse-button" aria-label="Translate">Translate</button>
-      <div id="morse-output" class="output-box" aria-live="polite">
-        <i class="fas fa-copy" id="copy-icon" style="opacity: 0.5; margin-right: 10px;"></i>
-        <span id="morse-output-text"></span>
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Import Space Grotesk Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Import Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+
+  <body class="light">
+    <header>
+      <!-- Button to toggle between dark and light mode -->
+      <button
+        id="theme-toggle"
+        aria-label="Toggle Dark/Light Mode"
+        class="theme-toggle"
+      >
+        <i class="material-icons" style="font-size: 16px">dark_mode</i>
+      </button>
+    </header>
+
+    <main>
+      <div class="left-side">
+        <!-- Logo and main title section -->
+        <img id="logo" src="assets/logo.svg" alt="Logo" />
+        <h1>Morse Code Translator</h1>
+        <p class="subtitle">The quick and simple translator for Morse code.</p>
       </div>
-      <button id="sound" aria-label="Play Sound" class="hidden" >Play</button>
-    </section>
-  </main>
-  <footer>
-    <p>
-      JavaScript Library: <a href="https://howlerjs.com/" target="_blank">Howler.js</a>
-      | Hosted on <a href="https://github.com" target="_blank">GitHub</a>
-    </p>
-    <p>&copy; 2024 Abilash, Kushagra. Licensed under the <a href="https://opensource.org/licenses/MIT"
-        target="_blank">MIT
-        License</a>.</p>
-  </footer>
-  <script src="assets/howler.js" defer></script>
-  <script src="script/translate.js" defer></script>
-  <script src="script/input.js" defer></script>
-  <script src="script/sound.js" defer></script>
-</body>
 
+      <div class="right-side">
+        <div class="input-container">
+          <!-- Notification for user feedback -->
+          <div id="notification" class="notification"></div>
+
+          <!-- Input field for entering text to translate -->
+          <input
+            type="text"
+            id="input-text"
+            placeholder="Enter text to translate"
+            aria-label="Enter text to translate"
+          />
+
+          <div class="input-overlay">
+            <!-- Button to clear the input -->
+            <button id="clear" aria-label="Clear" class="clear-button">
+              <i class="material-icons" style="font-size: 16px">cancel</i>
+            </button>
+
+            <!-- Character count display -->
+            <p id="charCount" class="char-count">
+              <span id="count">0</span> / 512
+            </p>
+          </div>
+        </div>
+
+        <div id="morse-output" class="output-box" aria-live="polite">
+          <!-- Button to copy Morse code to clipboard -->
+          <span class="copy-icon" aria-label="Copy to clipboard">
+            <i class="material-icons" style="font-size: 16px">content_copy</i>
+          </span>
+          <span id="morse-output-text"></span>
+        </div>
+
+        <div class="buttons">
+          <div class="left-buttons">
+            <div class="tooltip">
+              <!-- Info button with tooltip for additional guidance -->
+              <button id="info-button" aria-label="info">
+                <i id="info" class="material-icons" style="font-size: 16px"
+                  >info</i
+                >
+              </button>
+              <span class="tooltiptext">
+                <span class="highlight">/</span> in Morse code translation
+                represents space.<br />
+                Use <span class="highlight">' '</span> to add space between each
+                Morse character.
+              </span>
+            </div>
+          </div>
+          <div class="right-buttons">
+            <!-- Button to trigger the Morse code translation -->
+            <button id="morse-button" aria-label="Translate">
+              <i class="material-icons" style="font-size: 16px">create</i>
+              Translate
+            </button>
+            <!-- Button to play sound (hidden by default) -->
+            <button id="sound" aria-label="Play Sound" class="hidden">
+              <i class="material-icons" style="font-size: 16px">volume_up</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        JavaScript Library:
+        <a href="https://howlerjs.com/" target="_blank">Howler.js</a> | Hosted
+        on <a href="https://github.com" target="_blank">GitHub</a>
+      </p>
+      <p>
+        &copy; 2024 Abilash, Kushagra, Arun. Licensed under the
+        <a href="https://opensource.org/licenses/MIT" target="_blank"
+          >MIT License</a
+        >.
+      </p>
+    </footer>
+
+    <!-- Scripts for functionality -->
+    <script src="assets/howler.js" defer></script>
+    <script src="script/translate.js" defer></script>
+    <script src="script/input.js" defer></script>
+    <script src="script/sound.js" defer></script>
+  </body>
 </html>

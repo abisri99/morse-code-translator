@@ -1,197 +1,459 @@
+/* General Styles */
 body {
-  font-family: 'Roboto Mono', monospace;
-  background-color: #121212;
-  color: #d9d9d9;
-  margin: 0;
-  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #e8f1f2;
   display: flex;
   flex-direction: column;
+  max-height: 100vh;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+body.light {
+  color: #0f0f0e;
+}
+
+body.dark {
+  background-color: #191918;
+  color: #edede8;
+}
+
+::selection {
+  color: #0f0f0e;
+  background: #00b4d8;
+}
+
+/* Header Styles */
 header {
-  text-align: center;
-  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
-h1, .subtitle, .translator h2 {
-  font-family: 'Inconsolata', monospace;
+header .theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3rem;
-  color: #d9d9d9;
-  margin-bottom: 10px;
+body.dark .theme-toggle {
+  background-color: #edede8;
+  color: #0f0f0e;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #bbbbbb;
-}
-
+/* Main Styles */
 main {
+  background-color: #fdfdf8;
+  padding: 32px;
+  border-radius: 4px;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 72px;
+}
+
+body.dark main {
+  background-color: #0f0f0e;
+  color: #edede8;
+}
+
+.left-side {
+  flex: 1;
+  justify-content: space-between;
+  margin-right: 32px;
+  min-width: 250px;
+  text-align: left;
+}
+
+.right-side {
+  flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  max-width: 800px;
-  padding: 20px;
-  flex-grow: 1;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 300px;
 }
 
-.translator {
-  background: linear-gradient(145deg, #2e2e2e, #3a3a3a);
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  padding: 30px;
+/* Input Styles */
+.input-container {
+  position: relative;
   width: 100%;
-  max-width: 600px;
-  text-align: center;
-  margin: 20px;
 }
 
 input[type="text"] {
-  width: calc(100% - 30px);
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 2px solid #555555;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  background-color: #444444;
-  color: #d9d9d9;
+  width: 100%;
+  padding: 24px;
+  padding-right: 100px;
+  background-color: transparent;
+  border: 1px solid #0f0f0e;
+  border-radius: 4px;
+  margin-top: 72px;
+  min-height: 72px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+body.dark input[type="text"] {
+  border-color: #edede8;
+  color: #edede8;
 }
 
 input[type="text"]:focus {
-  border-color: #ffffff;
+  border-color: #00b4d8;
+}
+
+body.dark input[type="text"]:focus {
+  border-color: #00b4d8;
+}
+
+::placeholder {
+  color: #afafa8;
+}
+
+body.dark ::placeholder {
+  color: #afafa8;
+}
+
+/* Clear Button Styles */
+.input-overlay {
+  margin-top: 72px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.clear-button {
+  color: #0f0f0e;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  padding: 0;
+}
+
+body.light .clear-button {
+  color: #0f0f0e;
+  display: none;
+  background-color: transparent;
+}
+
+.clear-button.visible {
+  display: block;
+}
+
+body.dark .clear-button {
+  color: #edede8;
+  background-color: transparent;
+}
+
+.clear-button:hover {
+  color: #e32900;
+  background-color: transparent;
+}
+
+body.dark .clear-button:hover {
+  color: #e32900;
+  background-color: transparent;
+}
+
+body.light .clear-button:hover {
+  color: #e32900;
+  background-color: transparent;
+}
+
+/* Char Count Styles */
+.char-count {
+  font-size: 12px;
+  color: #afafa8;
+  margin-top: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+}
+
+/* Output Box Styles */
+.output-box {
+  background: #edede8;
+  width: 100%;
+  padding: 24px;
+  border-radius: 4px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  min-height: 72px;
+  margin-top: 32px;
+  word-break: break-word;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark .output-box {
+  background-color: #3a3a3a;
+  color: #edede8;
+}
+
+/* Copy Icon Styles */
+.copy-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  color: #0f0f0e;
+  cursor: pointer;
+}
+
+body.dark .copy-icon {
+  color: #edede8;
+}
+
+.copy-icon:hover {
+  color: #00b4d8;
+}
+
+body.dark .copy-icon:hover {
+  color: #00b4d8;
+}
+
+/* Button Styles */
+#create {
+  padding-right: 12px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.left-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+#info {
+  padding: 0px;
+  background-color: transparent;
+  color: #0f0f0e;
+}
+
+#info-button {
+  background-color: transparent;
+  padding: 0px;
+}
+
+body.dark #info {
+  color: #edede8;
+}
+
+body.dark #info:hover {
+  color: #00b4d8;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+#info:hover {
+  color: #00b4d8;
 }
 
 button {
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  color: #121212;
-  background-color: #d9d9d9;
+  background-color: #0f0f0e;
+  color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
+  padding: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #ffffff;
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-button#sound {
-  margin-top: 20px;
-}
-
-.output-box {
-  margin-top: 20px;
-  padding: 20px;
-  border: 2px solid #555555;
-  border-radius: 10px;
-  background: #444444;
-  min-height: 60px;
-  word-wrap: break-word;
-  font-size: 1.5rem;
-  color: #d9d9d9;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding-left: 20px;
-  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.copy,
-.limit,
-.error {
-  position: absolute;
-  top: -30px;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 5px 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-size: 12px;
-  font-weight: bold;
-  color: #333;
-  z-index: 1000;
+body.dark button {
+  background-color: #edede8;
+  color: #0f0f0e;
 }
 
-.fa-copy {
-  position: absolute;
-  left: 12px;
-  font-size: 16px;
-  top: 12px;
-  cursor: pointer;
+body.light button {
+  background-color: #0f0f0e;
+  color: #fdfdf8;
 }
 
+body.light button:hover {
+  background-color: #00b4d8;
+}
+
+body.dark button:hover {
+  background-color: #00b4d8;
+}
+
+body.light #morse-button {
+  background-color: #0f0f0e;
+  color: #fdfdf8;
+}
+
+body.dark #morse-button {
+  background-color: #fdfdf8;
+  color: #0f0f0e;
+}
+
+body.light #sound {
+  background-color: #0f0f0e;
+  color: #fdfdf8;
+}
+
+body.dark #sound {
+  background-color: #fdfdf8;
+  color: #0f0f0e;
+}
+
+body.light #morse-button:hover {
+  background-color: #00b4d8;
+}
+
+body.dark #morse-button:hover {
+  background-color: #00b4d8;
+}
+
+body.light #sound:hover {
+  background-color: #00b4d8;
+}
+
+body.dark #sound:hover {
+  background-color: #00b4d8;
+}
+
+/* Footer Styles */
 footer {
-  color: #9a9a9a;
-  font-size: smaller;
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 48%;
+  color: #0f0f0e;
+  width: 100%;
+  margin-top: 104px;
+}
+
+body.dark footer {
+  color: #edede8;
+}
+
+footer a {
+  color: #00b4d8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Tooltip Container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Tooltip Text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: min-content;
+  min-width: 300px;
+  background-color: #0f0f0e;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 5px 10px;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 1;
+  top: 50%;
+  left: 80%;
+  margin-left: 8px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  display: none;
+}
+
+/* Show Tooltip on Hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Dark Mode Tooltip Text */
+body.dark .tooltip .tooltiptext {
+  background-color: #edede8;
+  color: #0f0f0e;
+}
+
+body.dark .tooltip .tooltiptext::after {
+  border-color: transparent #edede8 transparent transparent;
+}
+
+.tooltiptext .highlight {
+  color: #00b4d8;
+}
+
+.notification {
+  position: absolute;
+  transition: opacity 0.5s;
+  margin-top: 40px;
+}
+
+.limit {
+  color: #ffc700;
+  padding: 2px;
+  font-size: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+.error {
+  color: #e32900;
+  padding: 2px;
+  font-size: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+.copy {
+  color: #038700;
+  padding: 2px;
+  font-size: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  border-radius: 2px;
 }
 
 .hidden {
   display: none;
 }
-
-@media only screen and (max-width: 768px) {
-  main {
-    padding: 10px;
-  }
-
-  .translator {
-    width: calc(100% - 40px);
-    padding: 20px;
-    margin: 20px;
-  }
-
-  input[type="text"] {
-    width: calc(100% - 30px);
-    padding: 12px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-  }
-
-  button {
-    padding: 12px 20px;
-    font-size: 1rem;
-  }
-
-  .output-box {
-    padding: 15px;
-    margin-top: 15px;
-    font-size: 1.2rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-  }
-
-  .translator h2 {
-    font-size: 1.5rem;
-  }
-
-  footer {
-    font-size: 0.6rem;
-  }
-}
-
